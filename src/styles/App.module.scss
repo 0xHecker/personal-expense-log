@@ -1,0 +1,66 @@
+@font-face {
+	font-weight: 300;
+	font-family: "Outfit";
+	font-style: normal;
+	src: url("../fonts/outfit-v4-latin-regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-weight: 500;
+	font-family: "Outfit";
+	font-style: normal;
+	src: url("../fonts/outfit-v4-latin-500.woff2") format("woff2");
+}
+
+@font-face {
+	font-weight: 700;
+	font-family: "Outfit";
+	font-style: normal;
+	src: url("../fonts/outfit-v4-latin-700.woff2") format("woff2");
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	line-height: 1.5;
+	border: none;
+	font-family: "Outfit", sans-serif;
+	text-decoration: none;
+	list-style: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+	--color-active: #363636;
+	--color-inactive: #9c9696;
+	--color-red-100: #ecb7b7;
+	--color-red-300: #72d4ae;
+	--color-red-600: #df4275;
+	--color-green-300: #cafca9;
+	--color-green-600: #92c44c;
+	--color-blue-300: #90caf9;
+	--color-blue-600: #0d3b66;
+	--color-yellow-300: #fdeacc;
+	--color-yellow-600: #f8aa35;
+}
+
+.App {
+	overflow-x: hidden;
+}
+.pageContainer {
+	display: flex;
+	user-select: none;
+}
+
+.mobileMenu {
+	display: none;
+	@media screen and (max-width: 768px) {
+		z-index: 50;
+		position: fixed;
+		display: block;
+		top: 0;
+		right: 0;
+	}
+}

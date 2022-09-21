@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styles from "./styles/App.module.scss";
+import PageContainer from "./components/Containers/PageContainer";
+import NavBar from "./components/Navbar/NavBar";
+import MobileNavbar from "./components/Navbar/MobileNavbar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className={styles.App}>
+			<BrowserRouter>
+				<PageContainer>
+					<NavBar />
+					<div className={styles.mobileMenu}>
+						<MobileNavbar />
+					</div>
+					<Routes>
+						<Route>
+							<Route path="/auth" element={<MobileNavbar />}></Route>
+						</Route>
+					</Routes>
+				</PageContainer>
+			</BrowserRouter>
+		</div>
+	);
 }
 
 export default App;

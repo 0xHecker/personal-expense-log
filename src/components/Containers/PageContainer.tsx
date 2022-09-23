@@ -1,14 +1,12 @@
 import React from "react";
 
 import styles from "../../styles/containers/PageContainer.module.scss";
+import ComponentProps from "../../types/ComponentProps";
 
-interface Props {
-	children: JSX.Element | JSX.Element[];
-	optionClass?: string;
-}
-
-const PageContainer: React.FC<Props> = ({ children }) => {
-	return <div className={styles.container}>{children}</div>;
+const PageContainer: React.FC<ComponentProps> = ({ children, optionClass }) => {
+	return <div className={`${styles.container} ${optionClass}`}>{children}</div>;
 };
-
+PageContainer.defaultProps = {
+	optionClass: undefined,
+};
 export default PageContainer;

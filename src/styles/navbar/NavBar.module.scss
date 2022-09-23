@@ -1,7 +1,7 @@
 .container {
 	display: flex;
 	flex-direction: column;
-	@media screen and (max-width: 760px) {
+	@media screen and (max-width: 768px) {
 		display: none;
 	}
 
@@ -12,6 +12,9 @@
 		margin-bottom: 2rem;
 		a {
 			color: var(--color-active);
+			&:focus-visible {
+				text-decoration: underline;
+			}
 		}
 	}
 
@@ -25,5 +28,21 @@
 				display: unset;
 			}
 		}
+	}
+}
+
+.logout {
+	background: transparent;
+	border-radius: 6px;
+	text-align: start;
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--color-inactive);
+	cursor: pointer;
+	&:focus-visible {
+		outline: 2px solid black;
+	}
+	&:hover {
+		color: var(--color-active);
 	}
 }

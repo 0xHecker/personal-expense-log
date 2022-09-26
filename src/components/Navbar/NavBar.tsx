@@ -1,12 +1,27 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 import styles from "../../styles/navbar/NavBar.module.scss";
 
 import NavBarLink from "./ListItems";
+import { useLogoutUser } from "../../queries/user";
+import { queryClient } from "../../constants/config";
 
-const logoutHandler = () => {};
+// const logoutHandler = () => {};
 
 const NavBar = () => {
+	const { auth, setAuth } = useContext(AuthContext);
+	const navigate = useNavigate();
+	const { mutate: logoutHandler, isSuccess } = useLogoutUser();
+
+	useEffect(() => {
+		if (isSuccess) {
+			queryClient.removeQueries();
+			setAuth(false);
+			if (!auth) navigate("login");
+		}
+	}, [auth, isSuccess, navigate, setAuth]);
+
 	return (
 		<>
 			<div className={styles.container}>

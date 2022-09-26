@@ -5,7 +5,7 @@ interface Props {
 	url: string;
 	children: JSX.Element;
 	optionClass?: string;
-	clickHandler?: React.MouseEventHandler<HTMLLIElement>;
+	clickHandler?: any;
 }
 
 const NavBarLink: React.FC<Props> = ({

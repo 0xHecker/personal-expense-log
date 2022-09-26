@@ -1,11 +1,34 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MainContainer from "../components/Containers/MainContainer";
 import Title from "../components/Titles/Titles";
 import styles from "../styles/authComponents/Auth.module.scss";
+import { useLoginUser } from "../queries/user";
+import { AuthContext } from "../context/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const { auth, setAuth } = useContext(AuthContext);
+
+	let body = {
+		email,
+		password,
+	};
+
+	const {
+		mutate: loginHandler,
+		isError: loginError,
+		error: loginErr,
+	} = useLoginUser();
+
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		if (auth) {
+			navigate("/");
+		}
+	}, [auth, navigate]);
 
 	return (
 		<MainContainer>
@@ -27,7 +50,18 @@ const Login = () => {
 						onChange={(e) => setPassword(e.target.value)}
 					></input>
 					{/* Login button */}
-					<button>Login</button>
+					<button
+						onClick={() =>
+							loginHandler(body, {
+								onError: () => {
+									console.log(loginErr);
+								},
+								onSuccess: () => setAuth(true),
+							})
+						}
+					>
+						Login
+					</button>
 				</div>
 			</form>
 		</MainContainer>

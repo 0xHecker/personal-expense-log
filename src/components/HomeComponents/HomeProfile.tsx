@@ -1,9 +1,8 @@
-import React from "react";
-import { BsPencil, BsPerson, BsWallet2 } from "react-icons/bs";
-import styles from "../../styles/homeComponents/HomeProfile.module.scss";
-import { Link } from "react-router-dom";
+import { BsPencil, BsPerson } from "react-icons/bs";
 import { IoSettingsOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 import { useUser } from "../../queries/user";
+import styles from "../../styles/homeComponents/HomeProfile.module.scss";
 
 const HomeProfile = () => {
 	const { data } = useUser();
@@ -26,11 +25,6 @@ const HomeProfile = () => {
 					<Link to={"settings"}>
 						<span>Settings</span>
 						<IoSettingsOutline />
-					</Link>
-
-					<Link to={"wallet"}>
-						<span>Wallet</span>
-						<BsWallet2 />
 					</Link>
 				</div>
 			</div>

@@ -1,14 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MainContainer from "../components/Containers/MainContainer";
 import Title from "../components/Titles/Titles";
 import { AuthContext } from "../context/AuthProvider";
 import { useLoginUser, useRegisterUser } from "../queries/user";
 import styles from "../styles/authComponents/Auth.module.scss";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
+	const [firstName, setFirstName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const { auth, setAuth } = useContext(AuthContext);
+	const navigate = useNavigate();
 
 	const {
 		mutate: loginHandler,
@@ -17,6 +20,7 @@ const Signup = () => {
 	} = useLoginUser();
 
 	let body = {
+		firstName,
 		email,
 		password,
 	};
@@ -26,7 +30,14 @@ const Signup = () => {
 		isSuccess: registerSucc,
 		isError: registerError,
 		error: registerErr,
+		isLoading,
 	} = useRegisterUser();
+
+	useEffect(() => {
+		if (auth) {
+			navigate("/");
+		}
+	}, [auth, navigate]);
 
 	return (
 		<MainContainer>
@@ -39,6 +50,12 @@ const Signup = () => {
 					<Title>
 						<h3>Signup</h3>
 					</Title>
+					<span>Name :</span>
+					<input
+						type={"text"}
+						autoComplete={"Name"}
+						onChange={(e) => setFirstName(e.target.value)}
+					></input>
 					<span>Email :</span>
 					<input
 						type={"email"}
@@ -67,6 +84,11 @@ const Signup = () => {
 					>
 						Signup
 					</button>
+					<div
+						style={{ padding: 15, fontWeight: "bold", letterSpacing: "0.5px" }}
+					>
+						<Link to={"/login"}>Login instead</Link>
+					</div>
 				</div>
 			</form>
 		</MainContainer>

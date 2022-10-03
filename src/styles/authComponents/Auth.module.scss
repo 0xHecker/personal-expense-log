@@ -3,7 +3,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-
+	max-height: fit-content;
 	h1 {
 		font-size: 2rem;
 		margin-bottom: 2rem;
@@ -33,6 +33,10 @@
 			color: whitesmoke;
 			background: #333;
 		}
+	}
+
+	.createAccount {
+		color: #333;
 	}
 }
 

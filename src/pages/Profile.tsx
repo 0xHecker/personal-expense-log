@@ -4,7 +4,7 @@ import { useUser, useUserUpdate } from "../queries/user";
 import styles from "../styles/profileComponents/Profile.module.scss";
 import { useState, useEffect } from "react";
 
-const Prifile = () => {
+const Profile = () => {
 	const { data: user, isSuccess } = useUser();
 	const {
 		mutate: userUpdate,
@@ -89,4 +89,4 @@ const Prifile = () => {
 	);
 };
 
-export default Prifile;
+export default Profile;

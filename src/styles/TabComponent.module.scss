@@ -1,0 +1,44 @@
+@use "mixins.scss";
+.container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	.tabs {
+		display: flex;
+		@media screen and (max-width: 600px) {
+			flex-direction: column;
+		}
+		a {
+			@include mixins.Link(140px, 40px);
+			border-left: 1px solid white;
+			@media screen and (max-width: 600px) {
+				border-right: none;
+				border-bottom: 1px solid white;
+			}
+			&:first-child {
+				border-radius: 14px 0 0 14px;
+				@media screen and (max-width: 600px) {
+					border-radius: 14px 14px 0 0;
+				}
+			}
+			&:last-child {
+				border-radius: 0 14px 14px 0;
+				@media screen and (max-width: 600px) {
+					border-radius: 0 0 14px 14px;
+				}
+			}
+		}
+
+		.active {
+			@include mixins.LinkActive;
+		}
+	}
+
+	.children {
+		margin-top: 3rem;
+		width: 100%;
+	}
+}

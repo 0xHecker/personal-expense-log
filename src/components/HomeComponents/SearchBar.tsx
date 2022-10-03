@@ -11,9 +11,7 @@ const SearchBar = () => {
 					<FiSearch />
 					<input type="text" placeholder="Search" />
 				</div>
-				<div className={styles.menuLink}>
-					<Link to={"wallet"}>Wallet</Link>
-				</div>
+
 				<div className={styles.menuLink}>
 					<Link to={"settings"}>Settings</Link>
 				</div>

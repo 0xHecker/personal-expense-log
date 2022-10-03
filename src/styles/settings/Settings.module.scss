@@ -19,15 +19,16 @@
 
 	button {
 		align-self: flex-start;
-		padding: 1rem;
+		padding: 1rem 1rem;
 		color: black;
-		font-size: 1.1rem;
+		font-size: 0.8rem;
+		font-weight: 500;
 		background: var(--color-red-300);
 		cursor: pointer;
 		transition: all 150ms ease-in-out;
 		border-radius: 8px;
 		&:hover {
-			background: var(--color-red-300);
+			background: black;
 			color: whitesmoke;
 		}
 	}

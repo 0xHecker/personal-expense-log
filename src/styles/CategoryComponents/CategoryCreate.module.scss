@@ -1,0 +1,14 @@
+@use "../mixins" as *;
+.categoryContainer {
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+	input {
+		@include inputStyle;
+	}
+	button {
+		@include defaultButton(140px, 40px);
+	}
+}

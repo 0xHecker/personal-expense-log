@@ -1,0 +1,19 @@
+@use "../mixins.scss" as *;
+
+.inner {
+	form {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+		input,
+		select {
+			@include inputStyle;
+		}
+		button {
+			@include defaultButton(140px, 40px);
+			align-self: center;
+		}
+	}
+}

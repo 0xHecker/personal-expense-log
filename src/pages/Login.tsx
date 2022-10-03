@@ -4,7 +4,7 @@ import Title from "../components/Titles/Titles";
 import styles from "../styles/authComponents/Auth.module.scss";
 import { useLoginUser } from "../queries/user";
 import { AuthContext } from "../context/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
 	const [email, setEmail] = useState("");
@@ -62,6 +62,11 @@ const Login = () => {
 					>
 						Login
 					</button>
+					<div
+						style={{ padding: 15, fontWeight: "bold", letterSpacing: "0.5px" }}
+					>
+						<Link to={"/signup"}> Register</Link>
+					</div>
 				</div>
 			</form>
 		</MainContainer>

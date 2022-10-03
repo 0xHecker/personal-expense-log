@@ -1,0 +1,41 @@
+@use "../mixins" as *;
+.filters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	.filterContainer {
+		border: 1px solid var(--color-inactive);
+		padding: 0.5rem;
+		border-radius: 10px;
+	}
+
+	.filter {
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+	}
+
+	select {
+		@include selectStyle;
+		font-size: 0.9rem;
+	}
+}
+
+.results {
+	.btns {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.5rem;
+	}
+
+	.btn {
+		@include defaultButton(140px, 40px);
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+	}
+	.inner {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+}

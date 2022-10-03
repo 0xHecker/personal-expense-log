@@ -55,15 +55,6 @@ const MobileNavbar = () => {
 							<h3>Transactions</h3>
 						</NavBarLink>
 
-						{/* Wallet */}
-						<NavBarLink
-							url="wallet"
-							optionClass={styles.linkColor}
-							clickHandler={closeNav}
-						>
-							<h3>Wallet</h3>
-						</NavBarLink>
-
 						{/* Profile */}
 						<div className={styles.mobileMenuLinks}>
 							<NavBarLink

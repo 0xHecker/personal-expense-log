@@ -1,5 +1,5 @@
-import { QueryClient } from "react-query";
-import { __prod__ } from "../utils/prod";
+import { QueryClient } from 'react-query';
+import { __prod__ } from '../utils/prod';
 
 const queryClient = new QueryClient();
 const url = __prod__
